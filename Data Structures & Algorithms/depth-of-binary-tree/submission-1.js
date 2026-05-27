@@ -1,0 +1,26 @@
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     constructor(val = 0, left = null, right = null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+
+class Solution {
+    /**
+     * @param {TreeNode} root
+     * @return {number}
+     */
+    maxDepth(root) {
+        if (root === null) {
+            return 0;
+        }
+        var leftDepth = this.maxDepth(root.left);
+        var rightDepth = this.maxDepth(root.right);
+        // Math.max(rightDepth, leftDepth) + 1;
+        return rightDepth > leftDepth ? rightDepth + 1 : leftDepth + 1;
+    }
+}
